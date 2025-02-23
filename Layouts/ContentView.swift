@@ -8,17 +8,33 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var messageString = "When the Genis Bar Needs Help, They Call You!"
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Text(messageString)
+                .fontWeight(.heavy)
+                .minimumScaleFactor(0.5)
+                .multilineTextAlignment(.center)
+                .font(.largeTitle)
+                .foregroundStyle(.red)
+                .padding()
+                .frame(height: 150)
+                .frame(maxWidth: .infinity)
+                .border(.orange, width: 2)
+            HStack {
+                Button("Awesome") {
+                    messageString = "You Are Awesome!"
+                }
+                Button("Great") {
+                    messageString = "You Are Great!"
+                }
+            }
+            .buttonStyle(.borderedProminent)
+            .border(.orange, width: 2)
         }
-        .padding()
     }
 }
-
+  
 #Preview {
     ContentView()
 }
